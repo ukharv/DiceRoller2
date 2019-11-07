@@ -59,6 +59,15 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    public int rollTheDice(){
+        Random r = new Random();
+        int rolledNumber = (r.nextInt(6) +1);
+        return rolledNumber;
+    }
+
+
+
     public void on_button_click(View button) {
 
         TextView tv = (TextView) this.findViewById(R.id.numberTextView);
@@ -67,9 +76,8 @@ public class MainActivity extends AppCompatActivity {
 
         EditText number = this.findViewById(R.id.editText1);
 
+        int rolledNumber=rollTheDice();
 
-        Random r = new Random();
-        int rolledNumber = (r.nextInt(6) +1);
         int guessedNumber = Integer.parseInt(number.getText().toString());
 
 
@@ -93,6 +101,34 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    public void on_button2_click(View button2) {
+
+        TextView tv = (TextView) this.findViewById(R.id.question);
+
+        int rolledNumber=rollTheDice();
+
+        if (rolledNumber == 1) {
+            tv.setText(" If you could go anywhere in the world, where would you go? ");
+        }
+        if (rolledNumber == 2) {
+            tv.setText(" If you were stranded on a desert island, what 3 things would you want to take with you? ");
+        }
+        if (rolledNumber == 3) {
+            tv.setText(" If you could eat only one food for the rest of your life, what would that be? ");
+        }
+        if (rolledNumber == 4) {
+            tv.setText(" If you won a million dollars, what is the first thing you would buy? ");
+        }
+        if (rolledNumber == 5) {
+            tv.setText(" If you could spend the day with one fictional character, who would it be? ");
+        }
+        else if (rolledNumber == 6) {
+            tv.setText(" If you found a magic lantern and a genie gave you three wishes, what would you wish? ");
+        }
+
+
+    }
 
 
 }
