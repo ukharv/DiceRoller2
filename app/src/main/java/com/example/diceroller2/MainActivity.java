@@ -11,11 +11,14 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
+    int score =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,11 +62,34 @@ public class MainActivity extends AppCompatActivity {
     public void on_button_click(View button) {
 
         TextView tv = (TextView) this.findViewById(R.id.numberTextView);
+        TextView tv2 = (TextView) this.findViewById(R.id.textViewScore);
+
+
+        EditText number = this.findViewById(R.id.editText1);
+
 
         Random r = new Random();
-        int number = (r.nextInt(6) +1);
+        int rolledNumber = (r.nextInt(6) +1);
+        int guessedNumber = Integer.parseInt(number.getText().toString());
 
-        tv.setText(Integer.toString(number));
+
+
+
+
+            if (guessedNumber == rolledNumber) {
+                score = score + 1;
+                tv.setText("Congrats! dice was" + rolledNumber);
+                tv2.setText("Your score is: " + score);
+
+            } else {
+                tv.setText("Wrong! dice was" + rolledNumber);
+            }
+
+        //tv.setText(Integer.toString(guessedNumber));
+
+
+
+
 
     }
 
