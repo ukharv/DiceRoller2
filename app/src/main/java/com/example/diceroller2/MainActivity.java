@@ -20,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
     int score =0;
 
+    // declare ArrayList here, create a method which adds the questions to it,
+    // then only call this method when its required (and not immediately on button click)
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
